@@ -1,0 +1,13 @@
+.wrapper {
+    padding: 10px;
+    border-bottom: 2px solid black;
+    margin-bottom: 20px;
+    & h3 {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+    & button {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+}

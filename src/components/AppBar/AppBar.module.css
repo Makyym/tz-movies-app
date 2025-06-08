@@ -1,0 +1,15 @@
+.wrapper {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 20px;
+    & h2 {
+        margin: 0;
+        font-size: 36px;
+        text-decoration: underline;
+        background: linear-gradient(90deg, #763AF5 48%, #A604F2 99%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+    }
+}

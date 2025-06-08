@@ -1,0 +1,24 @@
+.wrapper {
+    display: flex;
+    gap: 15px;
+    align-items: baseline;
+    margin-left: auto;
+}
+
+.active {
+    font-size: 24px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: purple;
+    background-clip: text;
+    color: transparent;
+}
+
+.link {
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
