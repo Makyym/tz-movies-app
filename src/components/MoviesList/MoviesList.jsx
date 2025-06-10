@@ -21,6 +21,11 @@ const MoviesList = ({searchValue}) => {
 
   if (loading) return <p>Download movies...</p>;
   if (!movies) return <div>Loading error.</div>;
+  if (!movies.length) return <div>There are no movies yet.</div>;
+  const sortedMovies = [...movies].sort((a, b) =>
+    a.title.localeCompare(b.title, 'uk', { sensitivity: 'base' })
+  );
+
 
   return (
     <div className={s.wrapper}>
@@ -28,7 +33,7 @@ const MoviesList = ({searchValue}) => {
       {movies.length ? (
         <>
           <ul className={s.ul}>
-            {movies.map(movie => (
+            {sortedMovies.map(movie => (
               <li key={movie.id}>
                 <Link to={`/movies/${movie.id.toString()}`} state={location}>
                   {movie.title}

@@ -21,7 +21,8 @@ const MovieItem = () => {
     }, [movieId]);
 
     if (loading) return <div>Loading...</div>;
-    if (!movie.title) return <div>Movie not found</div>;
+    if (!movie) return <div>Movie not found</div>;
+    if (!movie.title ?? true) return <div>Movie not found</div>;
 
     const {id, title, year, format, actors} = movie;
 

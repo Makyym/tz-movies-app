@@ -65,7 +65,7 @@ const slice = createSlice({
         .addCase(importMovies.pending, handlePending)
         .addCase(importMovies.rejected, handleRejected)
         .addCase(importMovies.fulfilled, (state, { payload }) => {
-            const allMovies = [...state.movies, ...payload.data];
+            const allMovies = [...(state.movies || []), ...(payload.data || [])];
             state.movies = allMovies.filter((movie, i, self) =>
                 i === self.findIndex(m => m.id === movie.id)
             );

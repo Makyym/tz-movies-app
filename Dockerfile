@@ -1,5 +1,13 @@
-# Используем официальный образ Node.js
 FROM node:18
+
+# Установка пакета locales и генерация украинской локали
+RUN apt-get update && apt-get install -y locales && \
+    sed -i '/uk_UA.UTF-8/s/^# //g' /etc/locale.gen && \
+    locale-gen
+
+# Установка переменных окружения для системы
+ENV LANG uk_UA.UTF-8
+ENV LC_ALL uk_UA.UTF-8
 
 # Устанавливаем рабочую директорию
 WORKDIR /app

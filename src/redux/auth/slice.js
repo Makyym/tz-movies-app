@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { loginUser, registerUser } from "./operations.js";
 
-const token = localStorage.getItem("jwtToken") || null;
+const tokenLocal = localStorage.getItem("jwtToken");
+
 const initialState = {
-    token,
-    isLoggedIn: token ? true : false,
+    token: tokenLocal,
+    isLoggedIn: tokenLocal && tokenLocal !== "undefined" ? true : false,
     error: null,
     loading: false,
 };
@@ -33,16 +34,20 @@ const slice = createSlice({
         .addCase(registerUser.pending, handlePending)
         .addCase(registerUser.rejected, handleRejected)
         .addCase(registerUser.fulfilled, (state, {payload}) => {
-            state.isLoggedIn = true;
             state.loading = false;
-            state.token = payload;
+            if (payload) {
+                state.token = payload;
+                state.isLoggedIn = true;
+            };
         })
         .addCase(loginUser.pending, handlePending)
         .addCase(loginUser.rejected, handleRejected)
         .addCase(loginUser.fulfilled, (state, {payload}) => {
-            state.isLoggedIn = true;
             state.loading = false;
-            state.token = payload;
+            if (payload) {
+                state.token = payload;
+                state.isLoggedIn = true;
+            };
         })
     },
 });

@@ -10,11 +10,21 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
     & button {
         width: 150px;
     }
     & label {
         margin-right: 8px;
+    }
+}
+
+.fieldDiv {
+    position: relative;
+    & span {
+        position: absolute;
+        left: 0;
+        bottom: -90%;
+        color: red;
     }
 }
